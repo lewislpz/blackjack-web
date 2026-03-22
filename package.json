@@ -1,0 +1,48 @@
+{
+  "name": "blackjack-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,blue \"npm run dev --workspace @blackjack/api\" \"npm run dev --workspace @blackjack/web\"",
+    "build": "npm run build --workspace @blackjack/contracts && npm run build --workspace @blackjack/engine && npm run build --workspace @blackjack/api && npm run build --workspace @blackjack/web",
+    "test": "npm run test --workspace @blackjack/contracts && npm run test --workspace @blackjack/engine && npm run test --workspace @blackjack/api && npm run test --workspace @blackjack/web",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspace @blackjack/contracts && npm run typecheck --workspace @blackjack/engine && npm run typecheck --workspace @blackjack/api && npm run typecheck --workspace @blackjack/web",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@tailwindcss/vite": "^4.2.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/supertest": "^7.2.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "jsdom": "^29.0.1",
+    "msw": "^2.12.14",
+    "prettier": "^3.8.1",
+    "supertest": "^7.2.2",
+    "tailwindcss": "^4.2.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.1",
+    "vite": "^8.0.1",
+    "vitest": "^4.1.0"
+  }
+}
